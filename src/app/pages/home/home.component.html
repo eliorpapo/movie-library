@@ -1,0 +1,48 @@
+<div class="home-container">
+  <section [class.blurry]="selectedMovie">
+    <div class="top-btns-container">
+      <div class="search-container">
+        <div id="cover">
+          <form>
+            <div class="tb">
+              <div class="td">
+                <input
+                  [(ngModel)]="searchMovieName"
+                  type="text"
+                  placeholder="Type movie..."
+                  name="search"
+                  id="search"
+                />
+              </div>
+              <div class="td" id="s-cover">
+                <button (click)="searchMovies()">
+                  <div id="s-circle"></div>
+                  <span></span>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <button class="home-btn" (click)="setDefMovies()">Home</button>
+    </div>
+    <app-movie-list
+      (onSelectMovie)="onSelectMovie($event)"
+      [movies]="movies$ | async"
+    ></app-movie-list>
+    <div *ngIf="currPage" class="pagging-contnaier">
+      <button class="page-btn" (click)="prevPage()">
+        <span>Prev &#8592;</span>
+      </button>
+      <span class="curr-page"> {{ currPage }}</span>
+      <button class="page-btn" (click)="nextPage()">
+        <span>Next &#8594;</span>
+      </button>
+    </div>
+  </section>
+  <app-movie-modal
+    [movie]="selectedMovie"
+    (onCloseModal)="closeModal()"
+    *ngIf="selectedMovie"
+  ></app-movie-modal>
+</div>

@@ -1,0 +1,7 @@
+<section class="movie-list">
+  <app-movie-preview
+    *ngFor="let movie of movies"
+    [movie]="movie"
+    (onSelectMovie)="onSelectMovie.emit($event)"
+  ></app-movie-preview>
+</section>

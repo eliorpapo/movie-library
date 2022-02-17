@@ -1,0 +1,14 @@
+<div class="movie-modal">
+  <img [src]="movie.Poster" alt="" />
+  <div class="movie-info">
+    <h3>{{ movie.Title }}</h3>
+    <p>{{ movie.Plot }}</p>
+    <p>Actors: {{ movie.Actors }}</p>
+    <p>Released at: {{ movie.Released }}</p>
+    <p>Genre: {{ movie.Genre }}</p>
+    <p>Awards: {{ movie.Awards }}</p>
+    <p>Runtime: {{ movie.Runtime }}</p>
+    <p>{{ movie.imdbRating }} <span> &#11088;</span></p>
+    <button (click)="onCloseModal.emit()" class="close-btn"></button>
+  </div>
+</div>

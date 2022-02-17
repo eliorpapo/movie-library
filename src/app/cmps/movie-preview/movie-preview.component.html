@@ -1,0 +1,8 @@
+<section (click)="onSelectMovie.emit(movie.imdbID)" class="movie-preview">
+  <img [class.largeImg]="!movie.imdbRating" [src]="movie.Poster" alt="" />
+  <h3>{{ movie.Title }}</h3>
+  <p class="movie-plot">{{ movie.Plot }}</p>
+  <p *ngIf="movie.imdbRating">
+    IMDb Rating: {{ movie.imdbRating }} <span> &#11088;</span>
+  </p>
+</section>
